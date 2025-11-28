@@ -1,31 +1,27 @@
 # CIRRO Dark Mode
 
-A professional Chrome extension that adds a comprehensive dark mode theme to the CIRRO application (app.cirro.live).
+A Chrome extension that adds a dark mode theme to CIRRO.
+<img width="359" height="397" alt="image" src="https://github.com/user-attachments/assets/c573e60e-ce02-481e-832b-d7ad414f17d0" />
 
 ## Features
 
 ### One-Click Dark Mode Toggle
 - Instantly switch between light and dark themes
 - Settings persist across sessions
-- Clean, modern popup interface
+- Blobs floating around
 
 ### Comprehensive Styling
-- **Complete UI Coverage**: Headers, sidebars, navigation, forms, tables, dropdowns, modals
-- **Smart Component Handling**: React-Select, Kendo UI grids, Leaflet maps, Highcharts
+- **UI Coverage**: Headers, sidebars, navigation, forms, tables, dropdowns, modals
+- **Component Handling**: React-Select, Kendo UI grids, Leaflet maps, Highcharts
 - **Icon Optimization**: Automatic contrast adjustment for logos and icons
 - **Accessibility**: Improved readability with carefully chosen color contrasts
-
-### Performance
-- Zero impact on page load times
-- CSS-only implementation (no JavaScript overhead on page)
-- Instant theme switching
 
 ## Installation
 
 ### From Chrome Web Store
 1. Visit the [CIRRO Dark Mode](https://chrome.google.com/webstore) page
 2. Click "Add to Chrome"
-3. Navigate to app.cirro.live and toggle dark mode from the extension icon
+3. Navigate to app.cirro.live (or if already open, reload the page to sync) and toggle dark mode from the extension icon
 
 ### Manual Installation (Development)
 1. Clone this repository
@@ -114,3 +110,6 @@ This extension:
 - React-Select and Kendo UI compatibility
 - Leaflet maps dark theme
 - Highcharts dark theme support
+
+### v1.0.1 (2025)
+- Radar and blobs
