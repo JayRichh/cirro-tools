@@ -104,17 +104,10 @@ This extension:
 - Does not make external network requests
 - Stores only dark mode preference locally
 
-## License
-
-MIT License - see LICENSE file for details
-
-## Support
-
-For issues or feature requests, please visit the [GitHub repository](https://github.com/yourusername/cirro-dark-mode).
 
 ## Version History
 
-### v1.0.0 (2024)
+### v1.0.0 (2025)
 - Initial release
 - Complete dark mode implementation
 - Support for all CIRRO UI components
