@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { ThreeBackground } from "./components/ThreeBackground";
 
 const Popup = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -42,9 +43,11 @@ const Popup = () => {
       minWidth: "320px",
       padding: "20px",
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-      backgroundColor: darkMode ? "#1e1e1e" : "#ffffff",
+      backgroundColor: "transparent",
       color: darkMode ? "#d4d4d4" : "#333333",
-      transition: "background-color 0.3s, color 0.3s"
+      transition: "color 0.3s",
+      position: "relative" as const,
+      zIndex: 1
     },
     header: {
       marginTop: 0,
@@ -103,8 +106,10 @@ const Popup = () => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   return (
-    <div style={popupStyles.container}>
-      <style>
+    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "400px" }}>
+      <ThreeBackground darkMode={darkMode} />
+      <div style={popupStyles.container}>
+        <style>
         {`
           @keyframes pulse {
             0%, 100% { opacity: 1; }
@@ -114,7 +119,7 @@ const Popup = () => {
       </style>
       
       <h2 style={popupStyles.header}>
-        CIRRO Dark Mode
+        CIRRO Tools
       </h2>
       
       <div 
@@ -170,6 +175,7 @@ const Popup = () => {
 
       <div style={popupStyles.footer}>
         v1.0.0 • For app.cirro.live
+      </div>
       </div>
     </div>
   );
