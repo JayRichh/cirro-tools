@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "CIRRO Dark Mode",
-  "description": "Professional dark mode theme for CIRRO app with comprehensive styling for improved readability and reduced eye strain",
-  "version": "1.0.0",
+  "description": "Dark mode theme for CIRRO app with styling for improved readability and reduced eye strain",
+  "version": "1.0.1",
   "author": "JayRich",
   "homepage_url": "https://github.com/jayrichh/cirro-tools",
 
@@ -41,6 +41,7 @@
   ],
 
   "host_permissions": [
-    "https://app.cirro.live/*"
+    "https://app.cirro.live/*",
+    "http://localhost/*"
   ]
 }

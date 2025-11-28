@@ -4,24 +4,34 @@
 const darkModeStyles = `
   /* All styles only apply when html has dark-mode class */
   html.dark-mode {
-    --dm-bg-main: #1e1e1e;
-    --dm-bg-elevated: #252526;
-    --dm-bg-input: #3c3c3c;
-    --dm-bg-hover: #2a2d2e;
-    --dm-border: #454545;
-    --dm-text: #d4d4d4;
+    --dm-bg-main: #202124;
+    --dm-bg-elevated: #292a2d;
+    --dm-bg-input: #303134;
+    --dm-bg-hover: #3c4043;
+    --dm-border: #3c4043;
+    --dm-text: #e8eaed;
     --dm-text-bright: #ffffff;
-    --dm-text-muted: #909090;
+    --dm-text-muted: #9aa0a6;
     --dm-brand: #00bedf;
-    --dm-focus: #007acc;
+    --dm-focus: #8ab4f8;
+
+    --dm-shadow-low: 0 1px 3px rgba(0,0,0,0.2);
+    --dm-shadow-med: 0 4px 6px rgba(0,0,0,0.3);
   }
 
-  /* BASE ELEMENTS */
+  /* BASE ELEMENTS & TYPOGRAPHY */
   html.dark-mode body,
   html.dark-mode html,
   html.dark-mode body *,
   html.dark-mode html * {
     color: var(--dm-text) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.dark-mode body {
+    line-height: 1.6 !important;
+    letter-spacing: 0.01em !important;
   }
 
   html.dark-mode body,
@@ -33,6 +43,16 @@ const darkModeStyles = `
     background-color: var(--dm-bg-main) !important;
   }
 
+  html.dark-mode h1, html.dark-mode h2, html.dark-mode h3,
+  html.dark-mode h4, html.dark-mode h5, html.dark-mode h6,
+  html.dark-mode .h1, html.dark-mode .h2, html.dark-mode .h3,
+  html.dark-mode .h4, html.dark-mode .h5, html.dark-mode .h6,
+  html.dark-mode strong, html.dark-mode b,
+  html.dark-mode .font-weight-bold, html.dark-mode th {
+    color: var(--dm-text-bright) !important;
+    letter-spacing: 0.02em !important;
+  }
+
   /* NAVIGATION & HEADERS */
   html.dark-mode .main-header,
   html.dark-mode .navbar,
@@ -41,8 +61,9 @@ const darkModeStyles = `
   html.dark-mode .topnav,
   html.dark-mode .navbar-brand-box,
   html.dark-mode header {
-    background-color: #181818 !important;
+    background-color: var(--dm-bg-elevated) !important;
     border-bottom: 1px solid var(--dm-border) !important;
+    box-shadow: var(--dm-shadow-low) !important;
   }
 
   html.dark-mode .navbar-nav .nav-link,
@@ -62,6 +83,7 @@ const darkModeStyles = `
     background-color: var(--dm-bg-hover) !important;
   }
 
+  /* SIDEBAR */
   html.dark-mode .main-sidebar,
   html.dark-mode .left-side,
   html.dark-mode .sidebar,
@@ -71,7 +93,8 @@ const darkModeStyles = `
   }
 
   html.dark-mode .sidebar-menu > li > a,
-  html.dark-mode .nav-sm .nav-link {
+  html.dark-mode .nav-sm .nav-link,
+  html.dark-mode .menu-link {
     color: var(--dm-text-muted) !important;
     background-color: transparent !important;
   }
@@ -79,58 +102,46 @@ const darkModeStyles = `
   html.dark-mode .sidebar-menu > li:hover > a,
   html.dark-mode .sidebar-menu > li.active > a,
   html.dark-mode .nav-sm .nav-link.active,
-  html.dark-mode .nav-sm .nav-link:hover {
+  html.dark-mode .nav-sm .nav-link:hover,
+  html.dark-mode .menu-link:hover {
     color: var(--dm-text-bright) !important;
     background-color: var(--dm-bg-hover) !important;
   }
 
-  /* TYPOGRAPHY */
-  html.dark-mode h1, html.dark-mode h2, html.dark-mode h3,
-  html.dark-mode h4, html.dark-mode h5, html.dark-mode h6,
-  html.dark-mode .h1, html.dark-mode .h2, html.dark-mode .h3,
-  html.dark-mode .h4, html.dark-mode .h5, html.dark-mode .h6,
-  html.dark-mode p, html.dark-mode span, html.dark-mode div,
-  html.dark-mode label, html.dark-mode strong, html.dark-mode b,
-  html.dark-mode em, html.dark-mode i, html.dark-mode small,
-  html.dark-mode .card-title, html.dark-mode .modal-title,
-  html.dark-mode .page-title, html.dark-mode th, html.dark-mode .table th {
-    color: var(--dm-text) !important;
-  }
-
-  html.dark-mode h1, html.dark-mode h2, html.dark-mode h3,
-  html.dark-mode h4, html.dark-mode h5, html.dark-mode h6,
-  html.dark-mode .h1, html.dark-mode .h2, html.dark-mode .h3,
-  html.dark-mode .h4, html.dark-mode .h5, html.dark-mode .h6,
-  html.dark-mode strong, html.dark-mode b,
-  html.dark-mode .font-weight-bold, html.dark-mode th {
+  html.dark-mode .menu-link.active {
     color: var(--dm-text-bright) !important;
+    background-color: var(--dm-bg-hover) !important;
   }
 
-  html.dark-mode .text-muted,
-  html.dark-mode .text-secondary,
-  html.dark-mode small,
-  html.dark-mode .small {
+  html.dark-mode .sideMenulbl {
+    color: inherit !important;
+  }
+
+  html.dark-mode .menu-dropdown {
+    background-color: var(--dm-bg-main) !important;
+  }
+
+  html.dark-mode .nav-sm.flex-column {
+    background-color: var(--dm-bg-main) !important;
+  }
+
+  html.dark-mode .innerMenulbl .nav-link {
     color: var(--dm-text-muted) !important;
+    background-color: transparent !important;
   }
 
-  html.dark-mode a,
-  html.dark-mode .btn-link,
-  html.dark-mode a.nav-link {
-    color: var(--dm-brand) !important;
-  }
-
-  html.dark-mode a:hover {
-    color: #00a0be !important;
+  html.dark-mode .innerMenulbl .nav-link:hover {
+    color: var(--dm-text-bright) !important;
+    background-color: var(--dm-bg-hover) !important;
   }
 
   /* CARDS & CONTAINERS */
   html.dark-mode .card, html.dark-mode .panel, html.dark-mode .well,
-  html.dark-mode .box, html.dark-mode .modal-content,
-  html.dark-mode .infoholder, html.dark-mode .credentials,
+  html.dark-mode .box, html.dark-mode .infoholder, html.dark-mode .credentials,
   html.dark-mode .card-block {
-    background-color: var(--dm-bg-main) !important;
+    background-color: var(--dm-bg-elevated) !important;
     border: 1px solid var(--dm-border) !important;
-    box-shadow: none !important;
+    box-shadow: var(--dm-shadow-low) !important;
   }
 
   html.dark-mode .card-header, html.dark-mode .panel-heading,
@@ -143,7 +154,75 @@ const darkModeStyles = `
 
   html.dark-mode .card-body, html.dark-mode .panel-body,
   html.dark-mode .box-body, html.dark-mode .modal-body {
+    background-color: transparent !important;
+  }
+
+  /* TABS & CONTENT CONTAINERS */
+  html.dark-mode .nav-tabs {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+  }
+
+  html.dark-mode .nav-tabs .nav-link {
+    color: var(--dm-text-muted) !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  html.dark-mode .nav-tabs .nav-link:hover {
+    color: var(--dm-text-bright) !important;
+    background-color: var(--dm-bg-hover) !important;
+  }
+
+  html.dark-mode .nav-tabs .nav-link.active {
+    color: var(--dm-text-bright) !important;
     background-color: var(--dm-bg-main) !important;
+    border-bottom: 2px solid var(--dm-brand) !important;
+  }
+  
+  html.dark-mode .tab-content,
+  html.dark-mode .tabs-content,
+  html.dark-mode .tab-pane {
+    background-color: var(--dm-bg-main) !important;
+    border-color: transparent !important;
+    color: var(--dm-text) !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* BUTTONS */
+  html.dark-mode .btn-default, html.dark-mode .btn-secondary,
+  html.dark-mode .btn-light {
+    background-color: var(--dm-bg-input) !important;
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+    box-shadow: none !important;
+  }
+
+  html.dark-mode .btn-default:hover, html.dark-mode .btn-secondary:hover {
+    background-color: var(--dm-bg-hover) !important;
+  }
+
+  html.dark-mode .btn-primary, html.dark-mode .btn-primary-cirro {
+    background-color: var(--dm-focus) !important;
+    color: var(--dm-text-bright) !important;
+    border: 1px solid var(--dm-focus) !important;
+    box-shadow: none !important;
+  }
+
+  html.dark-mode .btn-primary:hover, html.dark-mode .btn-primary-cirro:hover {
+    background-color: #005f9e !important;
+    border-color: #005f9e !important;
+  }
+
+  html.dark-mode a,
+  html.dark-mode .btn-link,
+  html.dark-mode a.nav-link {
+    color: var(--dm-brand) !important;
+  }
+
+  html.dark-mode a:hover {
+    color: #00a0be !important;
   }
 
   /* FORMS & INPUTS */
@@ -156,6 +235,7 @@ const darkModeStyles = `
     background-color: var(--dm-bg-input) !important;
     border: 1px solid var(--dm-border) !important;
     color: var(--dm-text-bright) !important;
+    box-shadow: none !important;
   }
 
   html.dark-mode input::placeholder,
@@ -169,6 +249,50 @@ const darkModeStyles = `
     background-color: var(--dm-bg-input) !important;
     border-color: var(--dm-focus) !important;
     outline: 1px solid var(--dm-focus) !important;
+  }
+
+  /* DROPDOWNS & MODALS */
+  html.dark-mode .modal-content {
+    background-color: var(--dm-bg-elevated) !important;
+    border: 1px solid var(--dm-border) !important;
+    box-shadow: var(--dm-shadow-med) !important;
+  }
+
+  html.dark-mode .dropdown-menu, html.dark-mode .popover,
+  html.dark-mode .tooltip-inner {
+    background-color: var(--dm-bg-elevated) !important;
+    border: 1px solid var(--dm-border) !important;
+    box-shadow: var(--dm-shadow-med) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .popover *,
+  html.dark-mode .tooltip-inner * {
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .popover img,
+  html.dark-mode .tooltip-inner img,
+  html.dark-mode .popover svg,
+  html.dark-mode .tooltip-inner svg {
+    filter: invert(1) brightness(1.3) !important;
+  }
+
+  html.dark-mode .btn img,
+  html.dark-mode .btn svg,
+  html.dark-mode button img,
+  html.dark-mode button svg {
+    filter: invert(1) brightness(1.3) !important;
+  }
+
+  html.dark-mode .dropdown-item, html.dark-mode .dropdown-menu > li > a {
+    color: var(--dm-text) !important;
+    background-color: transparent !important;
+  }
+
+  html.dark-mode .dropdown-item:hover, html.dark-mode .dropdown-item:focus {
+    background-color: var(--dm-bg-hover) !important;
+    color: var(--dm-text-bright) !important;
   }
 
   /* React-Select */
@@ -190,18 +314,11 @@ const darkModeStyles = `
     color: var(--dm-text-bright) !important;
   }
 
-  html.dark-mode .Select-input input:focus,
-  html.dark-mode .select__input input:focus {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-
   html.dark-mode .Select-menu-outer, html.dark-mode .Select-menu,
   html.dark-mode .select__menu, html.dark-mode .select__menu-list {
     background-color: var(--dm-bg-elevated) !important;
     border-color: var(--dm-border) !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+    box-shadow: var(--dm-shadow-med) !important;
   }
 
   html.dark-mode .Select-option, html.dark-mode .select__option {
@@ -232,7 +349,9 @@ const darkModeStyles = `
   html.dark-mode .k-picker-wrap, html.dark-mode .k-multiselect-wrap,
   html.dark-mode .k-textbox, html.dark-mode .k-input,
   html.dark-mode .k-dateinput, html.dark-mode .k-numerictextbox,
-  html.dark-mode .k-combobox {
+  html.dark-mode .k-combobox, html.dark-mode .k-daterangepicker,
+  html.dark-mode .k-daterangepicker-wrap, html.dark-mode .k-dateinput-wrap,
+  html.dark-mode .k-datepicker, html.dark-mode .k-datetimepicker {
     background-color: var(--dm-bg-input) !important;
     border-color: var(--dm-border) !important;
     color: var(--dm-text-bright) !important;
@@ -256,7 +375,7 @@ const darkModeStyles = `
   html.dark-mode .k-animation-container {
     background-color: var(--dm-bg-elevated) !important;
     border-color: var(--dm-border) !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+    box-shadow: var(--dm-shadow-med) !important;
   }
 
   html.dark-mode .k-item, html.dark-mode .k-list-item {
@@ -270,25 +389,109 @@ const darkModeStyles = `
     color: var(--dm-text-bright) !important;
   }
 
-  /* BUTTONS */
-  html.dark-mode .btn-default, html.dark-mode .btn-secondary,
-  html.dark-mode .btn-light {
-    background-color: var(--dm-bg-input) !important;
+  html.dark-mode .k-calendar, html.dark-mode .k-calendar-view,
+  html.dark-mode .k-calendar-container {
+    background-color: var(--dm-bg-elevated) !important;
     border-color: var(--dm-border) !important;
     color: var(--dm-text) !important;
   }
 
-  html.dark-mode .btn-default:hover, html.dark-mode .btn-secondary:hover {
-    background-color: var(--dm-bg-hover) !important;
-  }
-
-  html.dark-mode .btn-primary, html.dark-mode .btn-primary-cirro {
-    background-color: var(--dm-focus) !important;
+  html.dark-mode .k-calendar-header,
+  html.dark-mode .k-calendar .k-header {
+    background-color: var(--dm-bg-elevated) !important;
+    border-color: var(--dm-border) !important;
     color: var(--dm-text-bright) !important;
   }
 
-  html.dark-mode .btn-primary:hover, html.dark-mode .btn-primary-cirro:hover {
-    background-color: #005f9e !important;
+  html.dark-mode .k-calendar .k-title,
+  html.dark-mode .k-calendar-header .k-title,
+  html.dark-mode .k-calendar .k-nav-fast {
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .k-calendar-nav,
+  html.dark-mode .k-calendar .k-nav-prev,
+  html.dark-mode .k-calendar .k-nav-next,
+  html.dark-mode .k-calendar .k-nav-today {
+    background-color: transparent !important;
+    color: var(--dm-text) !important;
+  }
+
+  html.dark-mode .k-calendar .k-nav-prev:hover,
+  html.dark-mode .k-calendar .k-nav-next:hover,
+  html.dark-mode .k-calendar .k-nav-today:hover {
+    background-color: var(--dm-bg-hover) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .k-calendar-table,
+  html.dark-mode .k-calendar tbody,
+  html.dark-mode .k-calendar thead {
+    background-color: transparent !important;
+    color: var(--dm-text) !important;
+  }
+
+  html.dark-mode .k-calendar td,
+  html.dark-mode .k-calendar th {
+    background-color: transparent !important;
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+  }
+
+  html.dark-mode .k-calendar .k-link,
+  html.dark-mode .k-calendar td a,
+  html.dark-mode .k-calendar td span {
+    color: var(--dm-text) !important;
+  }
+
+  html.dark-mode .k-calendar .k-today {
+    background-color: rgba(138, 180, 248, 0.2) !important;
+    color: var(--dm-text-bright) !important;
+    border: 1px solid var(--dm-focus) !important;
+  }
+
+  html.dark-mode .k-calendar .k-state-selected,
+  html.dark-mode .k-calendar .k-state-selected .k-link {
+    background-color: rgba(138, 180, 248, 0.3) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .k-calendar .k-range-start,
+  html.dark-mode .k-calendar .k-range-end,
+  html.dark-mode .k-calendar .k-range-mid,
+  html.dark-mode .k-calendar .k-state-active {
+    background-color: rgba(138, 180, 248, 0.5) !important;
+    color: #202124 !important;
+  }
+
+  html.dark-mode .k-calendar .k-range-start .k-link,
+  html.dark-mode .k-calendar .k-range-end .k-link,
+  html.dark-mode .k-calendar .k-range-mid .k-link,
+  html.dark-mode .k-calendar .k-state-active .k-link {
+    color: #202124 !important;
+  }
+
+  html.dark-mode .k-calendar .k-range-start.k-range-end {
+    background-color: rgba(138, 180, 248, 0.6) !important;
+    color: #202124 !important;
+  }
+
+  html.dark-mode .k-calendar td:hover,
+  html.dark-mode .k-calendar .k-state-hover,
+  html.dark-mode .k-calendar td:hover .k-link,
+  html.dark-mode .k-calendar .k-state-hover .k-link {
+    background-color: var(--dm-bg-hover) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .k-calendar .k-other-month,
+  html.dark-mode .k-calendar .k-other-month .k-link {
+    color: var(--dm-text-muted) !important;
+    opacity: 0.5 !important;
+  }
+
+  html.dark-mode .k-calendar .k-weekend {
+    background-color: transparent !important;
   }
 
   /* TABLES & GRIDS */
@@ -326,6 +529,10 @@ const darkModeStyles = `
   }
 
   html.dark-mode tr:hover, html.dark-mode tbody tr:hover,
+  html.dark-mode .table-hover tbody tr:hover,
+  html.dark-mode .tblFavourites tbody tr:hover,
+  html.dark-mode .table-hover tbody tr:hover > td,
+  html.dark-mode .tblFavourites tbody tr:hover > td,
   html.dark-mode .k-grid tr:hover, html.dark-mode .k-grid tr.k-state-hover,
   html.dark-mode .k-grid td.k-state-focused,
   html.dark-mode .k-grid tr:hover td,
@@ -389,48 +596,6 @@ const darkModeStyles = `
     color: var(--dm-text-bright) !important;
   }
 
-  /* TABS */
-  html.dark-mode .nav-tabs {
-    background-color: transparent !important;
-    border-bottom: 1px solid var(--dm-border) !important;
-  }
-
-  html.dark-mode .nav-tabs .nav-link {
-    color: var(--dm-text-muted) !important;
-    background-color: transparent !important;
-    border: none !important;
-  }
-
-  html.dark-mode .nav-tabs .nav-link:hover {
-    color: var(--dm-text-bright) !important;
-    background-color: var(--dm-bg-hover) !important;
-  }
-
-  html.dark-mode .nav-tabs .nav-link.active {
-    color: var(--dm-text-bright) !important;
-    background-color: var(--dm-bg-main) !important;
-    border-bottom: 2px solid var(--dm-brand) !important;
-  }
-
-  /* DROPDOWNS */
-  html.dark-mode .dropdown-menu, html.dark-mode .popover,
-  html.dark-mode .tooltip-inner {
-    background-color: var(--dm-bg-elevated) !important;
-    border: 1px solid var(--dm-border) !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
-    color: var(--dm-text) !important;
-  }
-
-  html.dark-mode .dropdown-item, html.dark-mode .dropdown-menu > li > a {
-    color: var(--dm-text) !important;
-    background-color: transparent !important;
-  }
-
-  html.dark-mode .dropdown-item:hover, html.dark-mode .dropdown-item:focus {
-    background-color: var(--dm-bg-hover) !important;
-    color: var(--dm-text-bright) !important;
-  }
-
   /* CHARTS (Highcharts) */
   html.dark-mode .highcharts-container, html.dark-mode .highcharts-root {
     background-color: transparent !important;
@@ -477,21 +642,198 @@ const darkModeStyles = `
     background-color: var(--dm-bg-main) !important;
   }
 
-  html.dark-mode .leaflet-bar, html.dark-mode .leaflet-control-layers,
-  html.dark-mode .leaflet-control-zoom-in, html.dark-mode .leaflet-control-zoom-out {
+  html.dark-mode .leaflet-bar,
+  html.dark-mode .leaflet-control,
+  html.dark-mode .leaflet-control-layers,
+  html.dark-mode .leaflet-control-zoom {
     background-color: var(--dm-bg-elevated) !important;
     border: 1px solid var(--dm-border) !important;
   }
 
-  html.dark-mode .leaflet-bar a, html.dark-mode .leaflet-bar button {
+  html.dark-mode .leaflet-bar a,
+  html.dark-mode .leaflet-bar button,
+  html.dark-mode .leaflet-control-zoom-in,
+  html.dark-mode .leaflet-control-zoom-out,
+  html.dark-mode .leaflet-control-zoom-fullscreen,
+  html.dark-mode .leaflet-control-layers-toggle {
+    background-color: var(--dm-bg-elevated) !important;
+    color: #202124 !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+  }
+
+  html.dark-mode .leaflet-bar a:hover,
+  html.dark-mode .leaflet-control-zoom-in:hover,
+  html.dark-mode .leaflet-control-zoom-out:hover,
+  html.dark-mode .leaflet-control-zoom-fullscreen:hover {
+    background-color: var(--dm-bg-hover) !important;
+    color: #000000 !important;
+  }
+
+  html.dark-mode .leaflet-bar a.leaflet-disabled {
+    background-color: var(--dm-bg-input) !important;
+    color: var(--dm-text-muted) !important;
+    opacity: 0.5 !important;
+  }
+
+  html.dark-mode .leaflet-bar a::before,
+  html.dark-mode .leaflet-bar a::after,
+  html.dark-mode .leaflet-control-zoom-in::before,
+  html.dark-mode .leaflet-control-zoom-in::after,
+  html.dark-mode .leaflet-control-zoom-out::before,
+  html.dark-mode .leaflet-control-zoom-out::after {
+    color: #202124 !important;
+    background-color: #202124 !important;
+  }
+
+  html.dark-mode .leaflet-control-layers-expanded,
+  html.dark-mode .leaflet-control-layers-list {
+    background-color: var(--dm-bg-elevated) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .leaflet-control-layers-base,
+  html.dark-mode .leaflet-control-layers-overlays {
+    background-color: transparent !important;
+  }
+
+  html.dark-mode .leaflet-control-layers-base label,
+  html.dark-mode .leaflet-control-layers-overlays label,
+  html.dark-mode .leaflet-control-layers-base label span,
+  html.dark-mode .leaflet-control-layers-overlays label span,
+  html.dark-mode .leaflet-control-layers label *,
+  html.dark-mode .leaflet-control-layers span {
+    color: var(--dm-text-bright) !important;
+    background-color: transparent !important;
+  }
+
+  html.dark-mode .leaflet-control-layers-selector,
+  html.dark-mode .leaflet-control-layers input[type="radio"],
+  html.dark-mode .leaflet-control-layers input[type="checkbox"] {
+    filter: invert(1) brightness(1.2) !important;
+  }
+
+  html.dark-mode .leaflet-control-layers-separator {
+    border-color: var(--dm-border) !important;
+    background-color: var(--dm-border) !important;
+  }
+
+  /* MAP SETTINGS PANEL */
+  html.dark-mode .map-setting-location-desktop,
+  html.dark-mode #map-setting-location-desktop {
+    background-color: var(--dm-bg-elevated) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .map-setting-location-desktop *,
+  html.dark-mode #map-setting-location-desktop * {
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .map-setting-location-desktop label,
+  html.dark-mode #map-setting-location-desktop label {
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .map-setting-location-desktop .form-control,
+  html.dark-mode #map-setting-location-desktop .form-control,
+  html.dark-mode .map-setting-location-desktop input,
+  html.dark-mode #map-setting-location-desktop input {
+    background-color: var(--dm-bg-input) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .map-setting-location-desktop .infor-popover,
+  html.dark-mode #map-setting-location-desktop .infor-popover,
+  html.dark-mode .map-setting-location-desktop img,
+  html.dark-mode #map-setting-location-desktop img {
+    filter: invert(1) brightness(1.3) !important;
+  }
+
+  html.dark-mode .map-setting-location-desktop svg,
+  html.dark-mode #map-setting-location-desktop svg,
+  html.dark-mode .map-setting-location-desktop svg path,
+  html.dark-mode #map-setting-location-desktop svg path {
+    fill: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .map-setting-location-desktop .Select,
+  html.dark-mode #map-setting-location-desktop .Select,
+  html.dark-mode .map-setting-location-desktop .Select-control,
+  html.dark-mode #map-setting-location-desktop .Select-control {
+    background-color: var(--dm-bg-input) !important;
+    border-color: var(--dm-border) !important;
+  }
+
+  html.dark-mode .leaflet-popup-content-wrapper,
+  html.dark-mode .leaflet-popup-tip {
     background-color: var(--dm-bg-elevated) !important;
     color: var(--dm-text) !important;
-    border-bottom: 1px solid var(--dm-border) !important;
+    box-shadow: var(--dm-shadow-med) !important;
+  }
+
+  html.dark-mode .leaflet-popup-content {
+    color: var(--dm-text-bright) !important;
+    background-color: transparent !important;
+  }
+
+  html.dark-mode .leaflet-popup-content *,
+  html.dark-mode .leaflet-popup-content p,
+  html.dark-mode .leaflet-popup-content div,
+  html.dark-mode .leaflet-popup-content span,
+  html.dark-mode .leaflet-popup-content strong,
+  html.dark-mode .leaflet-popup-content a,
+  html.dark-mode .leaflet-popup-content label {
+    color: var(--dm-text-bright) !important;
+    background-color: transparent !important;
+  }
+
+  html.dark-mode .leaflet-popup-content select,
+  html.dark-mode .leaflet-popup-content input,
+  html.dark-mode .leaflet-popup-content textarea,
+  html.dark-mode .leaflet-popup-content button,
+  html.dark-mode .leaflet-popup-content .btn {
+    background-color: var(--dm-bg-input) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .leaflet-popup-content a:hover {
+    color: var(--dm-brand) !important;
+  }
+
+  html.dark-mode .leaflet-popup-close-button {
+    color: var(--dm-text-muted) !important;
+  }
+
+  html.dark-mode .leaflet-popup-close-button:hover {
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .leaflet-tooltip {
+    background-color: var(--dm-bg-elevated) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+    box-shadow: var(--dm-shadow-low) !important;
+  }
+
+  html.dark-mode .leaflet-tooltip::before {
+    border-top-color: var(--dm-bg-elevated) !important;
+  }
+
+  html.dark-mode .leaflet-control-attribution {
+    background-color: rgba(41, 42, 45, 0.8) !important;
+    color: var(--dm-text-muted) !important;
+  }
+
+  html.dark-mode .leaflet-control-attribution a {
+    color: var(--dm-brand) !important;
   }
 
   html.dark-mode .filter-show-on-map, html.dark-mode ul.legend,
   html.dark-mode .legend {
-    background-color: rgba(37, 37, 38, 0.95) !important;
+    background-color: rgba(41, 42, 45, 0.95) !important;
     border: 1px solid var(--dm-border) !important;
     color: var(--dm-text) !important;
   }
@@ -503,7 +845,7 @@ const darkModeStyles = `
   /* FOOTER */
   html.dark-mode footer, html.dark-mode .main-footer,
   html.dark-mode .footer-class {
-    background-color: #181818 !important;
+    background-color: var(--dm-bg-elevated) !important;
     border-top: 1px solid var(--dm-border) !important;
     color: var(--dm-text-muted) !important;
   }
@@ -525,6 +867,23 @@ const darkModeStyles = `
     opacity: 0.9 !important;
   }
 
+  html.dark-mode .icon-holder {
+    background-color: transparent !important;
+    color: var(--dm-text-muted) !important;
+  }
+
+  html.dark-mode .icon-holder:hover {
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .icon-help {
+    color: var(--dm-text) !important;
+  }
+
+  html.dark-mode .icon-holder:hover .icon-help {
+    color: var(--dm-text-bright) !important;
+  }
+
   html.dark-mode .logo-dark, html.dark-mode img[src*="logo-dark"] {
     filter: invert(53%) sepia(83%) saturate(2256%) hue-rotate(155deg) brightness(95%) contrast(101%) !important;
   }
@@ -538,7 +897,10 @@ const darkModeStyles = `
     filter: invert(53%) sepia(83%) saturate(2256%) hue-rotate(155deg) brightness(95%) contrast(101%) !important;
   }
 
-  html.dark-mode img[src*="icon"], html.dark-mode .icon-holder img {
+  html.dark-mode img[src*="icon"], html.dark-mode .icon-holder img,
+  html.dark-mode .d-inline-flex img, html.dark-mode .flex-column img,
+  html.dark-mode .btn-cust img, html.dark-mode .infor-popover,
+  html.dark-mode .col-lg-2 img {
     filter: invert(1) brightness(1.3) !important;
   }
 
