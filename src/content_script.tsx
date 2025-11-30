@@ -308,10 +308,49 @@ const darkModeStyles = `
     color: var(--dm-text) !important;
   }
 
+  /* Multi-select value containers - CRITICAL FIX */
+  html.dark-mode .Select-value,
+  html.dark-mode .Select-value.multiSelectCustomOption,
+  html.dark-mode .multiSelectCustomSelect .Select-value,
+  html.dark-mode .select__multi-value {
+    background-color: var(--dm-bg-hover) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .Select-value-label,
+  html.dark-mode .Select-value.multiSelectCustomOption .Select-value-label,
+  html.dark-mode .select__multi-value__label {
+    background-color: transparent !important;
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .Select-value-icon,
+  html.dark-mode .Select-value.multiSelectCustomOption .Select-value-icon,
+  html.dark-mode .select__multi-value__remove {
+    background-color: transparent !important;
+    color: var(--dm-text-muted) !important;
+    border-right: 1px solid var(--dm-border) !important;
+  }
+
+  html.dark-mode .Select-value-icon:hover,
+  html.dark-mode .select__multi-value__remove:hover {
+    background-color: rgba(240, 101, 72, 0.3) !important;
+    color: var(--dm-text-bright) !important;
+  }
+
   html.dark-mode .Select-input, html.dark-mode .Select-input input,
   html.dark-mode .select__input input {
     background-color: transparent !important;
     color: var(--dm-text-bright) !important;
+  }
+
+  /* Remove focus line */
+  html.dark-mode .Select-input input:focus,
+  html.dark-mode .select__input input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
   }
 
   html.dark-mode .Select-menu-outer, html.dark-mode .Select-menu,
@@ -339,9 +378,30 @@ const darkModeStyles = `
     color: var(--dm-text-bright) !important;
   }
 
+  html.dark-mode .Select-noresults,
+  html.dark-mode .select__menu-notice {
+    background-color: var(--dm-bg-elevated) !important;
+    color: var(--dm-text-muted) !important;
+  }
+
   html.dark-mode .Select-arrow-zone, html.dark-mode .Select-arrow,
   html.dark-mode .select__dropdown-indicator, html.dark-mode .select__indicator {
     color: var(--dm-text-muted) !important;
+  }
+
+  html.dark-mode .Select-clear-zone, html.dark-mode .Select-clear,
+  html.dark-mode .select__clear-indicator {
+    color: var(--dm-text-muted) !important;
+  }
+
+  html.dark-mode .Select-clear:hover,
+  html.dark-mode .select__clear-indicator:hover {
+    color: var(--dm-text-bright) !important;
+  }
+
+  html.dark-mode .Select-loading-zone, html.dark-mode .Select-loading,
+  html.dark-mode .select__loading-indicator {
+    color: var(--dm-brand) !important;
   }
 
   /* Kendo UI */
