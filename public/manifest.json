@@ -24,7 +24,7 @@
 
   "content_scripts": [
     {
-      "matches": ["https://app.cirro.live/*"],
+      "matches": ["https://app.cirro.live/*", "http://localhost/*", "https://localhost/*"],
       "js": ["js/vendor.js", "js/content_script.js"],
       "run_at": "document_start"
     }
@@ -42,6 +42,7 @@
 
   "host_permissions": [
     "https://app.cirro.live/*",
-    "http://localhost/*"
+    "http://localhost/*",
+    "https://localhost/*"
   ]
 }
